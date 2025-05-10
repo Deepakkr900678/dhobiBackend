@@ -1,38 +1,46 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const ServiceProviderSchema = new mongoose.Schema({
+const ServiceProviderSchema = new mongoose.Schema(
+  {
     userId: {
-        type: String,
+      type: String,
     },
     businessName: {
-        type: String,
+      type: String,
     },
     servicesOffered: {
-        type: String,
+      type: String,
     },
     pricing: {
-        shirt: {
-            type: Number,
-            required: true,
-        },
-        trouser: {
-            type: Number,
-            required: true,
-        },
+      shirt: {
+        type: Number,
+      },
+      trouser: {
+        type: Number,
+      },
     },
-    images: [{
+    images: [
+      {
         type: String,
-    }],
+      },
+    ],
     isApproved: {
-        type: String,
+      type: String,
+      default: "pending",
     },
     isActive: {
-        type: String,
+      type: String,
+      default: "true",
     },
     earnings: {
-        type: String,
+      type: String,
     },
-}, { timestamps: true });
+  },
+  { timestamps: true }
+);
 
-const ServiceProviderModel = mongoose.model('ServiceProvider', ServiceProviderSchema);
+const ServiceProviderModel = mongoose.model(
+  "ServiceProvider",
+  ServiceProviderSchema
+);
 module.exports = ServiceProviderModel;
